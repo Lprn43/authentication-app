@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include<windows.h>
 
 int main()
 {
@@ -51,6 +52,7 @@ int main()
                 printf("Password try right has expired. Closing the program.");
             }
         }
+        Sleep(5000);
         break;
     }
     return 0;
