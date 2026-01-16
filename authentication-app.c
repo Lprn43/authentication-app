@@ -3,60 +3,55 @@
 
 int main()
 {
-
     while (1)
     {
-        int sayi_x = 0;
-        int sayi_y = 0;
+        int number_x = 0;
+        int number_y = 0;
         char isQ;
-        char SABIT_SIFRE[] = "Giris123";
-        char kullaniciSifre[9];
-        printf("Programdan çıkmak için 'q' tuşuna basın, devam etmek için herhangi bir tuşa basın.");
+        char FIXED_PASS[] = "Login123";
+        char userPass[9];
+        printf("Press 'q' to exit, press any button to continue.");
         scanf("%c",&isQ);
         scanf("%*[^\n]");
         if (isQ == 'q')
         {
             break;
         }
-        printf("Dogrulama 1: Iki sayi giriniz bu iki sayinin carpimi 100'den buyuk toplami ise 50'den kucuk olsun.\n");
-        printf("Sayi 1'i giriniz:");
-        scanf("%d",&sayi_x);
-        printf("Sayi 2'yi giriniz:");
-        scanf("%d",&sayi_y);
-        if (sayi_x*sayi_y > 100 && sayi_x+sayi_y < 50)
+        printf("Authentication 1: Enter two numbers such that their product is greater than 100 and their sum is less than 50.\n");
+        printf("Enter Number 1:");
+        scanf("%d",&number_x);
+        printf("Enter Number 2:");
+        scanf("%d",&number_y);
+        if (number_x*number_y > 100 && number_x+number_y < 50)
         {
-            printf("Matematiksel Doğrulama Başarılı! Şifre Kontrolüne Geçiliyor.");
+            printf("Mathematical authentication is complete. Proceeding to password authentication.");
         }
         else
         {
-            printf("Matematiksel Doğrulama Hatalı. Ana menüye dönülüyor.");
+            printf("Mathematical authentication failed. Returning to main menu");
             continue;
         }
         printf("Dogrulama 2: Sifreyi giriniz toplam 3 hakkiniz vardir.\n");
         for (int i = 0; i < 3; i++)
         {
-            printf("Sifre giriniz:");
-            scanf("%s",kullaniciSifre);
+            printf("Enter the password:");
+            scanf("%s",userPass);
             //scanf("%*[^\n]");
-            if (strcmp(SABIT_SIFRE,kullaniciSifre) == 0)
+            if (strcmp(FIXED_PASS,userPass) == 0)
             {
-                printf("Giriş Tamamlandı! Sisteme Hoş Geldiniz!");
+                printf("Login completed succesfully. Welcome to the system.");
                 break;
             }
             else if (i < 2)
             {
-                printf("Hatalı şifre. Kalan deneme: %d\n",2-i);         
+                printf("Wrong password. Remaining trial: %d\n",2-i);         
             }
             else
             {
-                printf("Şifre deneme hakkınız bitti. Program Kapatılıyor.");
+                printf("Password try right has expired. Closing the program.");
             }
         }
         break;
     }
-
-
-
-
     return 0;
 }
